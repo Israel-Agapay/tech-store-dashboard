@@ -80,8 +80,8 @@ const App = () => {
         setloading(true);
         try {
           const [productsRes, userRes] = await Promise.all([
-            fetch("http://localhost:5000/products", { headers: getAuthHeader() }),
-            fetch("http://localhost:5000/me", { headers: getAuthHeader() }),
+            fetch("https://tech-store-dashboard.onrender.com/products", { headers: getAuthHeader() }),
+            fetch("https://tech-store-dashboard.onrender.com/me", { headers: getAuthHeader() }),
           ]);
 
           if (!productsRes.ok) throw new Error("Not able to fetch products");
@@ -123,7 +123,7 @@ const App = () => {
 
       if (isEdit) {
         try {
-          const response = await fetch(`http://localhost:5000/products/${isEdit}`, {
+          const response = await fetch(`https://tech-store-dashboard.onrender.com/products/${isEdit}`, {
             method: "PUT",
             headers: getAuthHeader(),
             body: JSON.stringify({
@@ -154,7 +154,7 @@ const App = () => {
         }
       } else {
         try {
-          const response = await fetch("http://localhost:5000/products", {
+          const response = await fetch("https://tech-store-dashboard.onrender.com/products", {
             method: "POST",
             headers: getAuthHeader(),
             body: JSON.stringify({
@@ -187,7 +187,7 @@ const App = () => {
 
     const handleDelete = async (id: string) => {
       try {
-        const response = await fetch(`http://localhost:5000/products/${id}`, {
+        const response = await fetch(`https://tech-store-dashboard.onrender.com/products/${id}`, {
           method: "DELETE",
           headers: getAuthHeader(),
         });
