@@ -25,7 +25,7 @@ const App = () => {
     const [isEdit, setisEdit] = useState<string | null>(null)
     const [product, setProducts] = useState<Product[]>([])
     const [loading, setloading] = useState<boolean>(false)
-    const [_error, seterror] = useState<string | null>(null)
+    
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 5;
     const [sortBy, setSortBy] = useState("default");
@@ -226,23 +226,6 @@ const App = () => {
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>
             <p className="mt-4 text-zinc-400">Loading products...</p>
-          </div>
-        </div>
-      );
-    }
-
-    if (_error) {
-      return (
-        <div className="bg-zinc-950 min-h-screen flex items-center justify-center">
-          <div className="bg-red-500/10 border border-red-500 p-6 rounded-xl">
-            <h2 className="text-red-500 text-xl font-bold">Error</h2>
-            <p className="text-white mt-2">{_error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="mt-4 bg-white text-black px-4 py-2 rounded-lg"
-            >
-              Retry
-            </button>
           </div>
         </div>
       );

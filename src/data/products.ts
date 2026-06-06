@@ -8,6 +8,7 @@ export const product : Products[] = [
     category: "Monitor",
     stock: 10,
     status: "In Stock",
+    createdAt: "",
   },
   {
     _id: "",
@@ -16,6 +17,7 @@ export const product : Products[] = [
     category: "Keyboard",
     stock: 3,
     status: "Low Stock",
+    createdAt: "",
   },
   {
     _id: "",
@@ -24,5 +26,6 @@ export const product : Products[] = [
     category: "CPU",
     stock: 0,
     status: "Out of Stock",
+    createdAt: "",
   },
 ]
