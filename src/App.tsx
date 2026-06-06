@@ -25,7 +25,7 @@ const App = () => {
     const [isEdit, setisEdit] = useState<string | null>(null)
     const [product, setProducts] = useState<Product[]>([])
     const [loading, setloading] = useState<boolean>(false)
-    const [error, seterror] = useState<string | null>(null)
+    const [_error, seterror] = useState<string | null>(null)
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 5;
     const [sortBy, setSortBy] = useState("default");
@@ -231,12 +231,12 @@ const App = () => {
       );
     }
 
-    if (error) {
+    if (_error) {
       return (
         <div className="bg-zinc-950 min-h-screen flex items-center justify-center">
           <div className="bg-red-500/10 border border-red-500 p-6 rounded-xl">
             <h2 className="text-red-500 text-xl font-bold">Error</h2>
-            <p className="text-white mt-2">{error}</p>
+            <p className="text-white mt-2">{_error}</p>
             <button
               onClick={() => window.location.reload()}
               className="mt-4 bg-white text-black px-4 py-2 rounded-lg"
