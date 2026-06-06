@@ -236,11 +236,10 @@ const App = () => {
       <div className="max-w-7xl mx-auto">
         <div className="p-6">
 
-          {/* Header */}
-          <div className="p-6 flex items-center justify-between">
+          <div className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold">Tech Store Admin Dashboard</h1>
-              <p className="text-zinc-400 mt-2">Manage products, inventory, and stock status.</p>
+              <h1 className="text-2xl md:text-4xl font-bold">Tech Store Admin Dashboard</h1>
+              <p className="text-zinc-400 mt-2 text-sm md:text-base">Manage products, inventory, and stock status.</p>
               <p className="text-zinc-500 text-sm mt-1">
                 Welcome back, <span className="text-white font-semibold">{userEmail}</span>
               </p>
@@ -248,19 +247,19 @@ const App = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={exportToCSV}
-                className="bg-green-600 hover:bg-green-700 px-4 py-3 rounded-lg font-semibold transition">
+                className="bg-green-600 hover:bg-green-700 px-4 py-2 md:py-3 rounded-lg font-semibold transition text-sm md:text-base">
                 Export CSV
               </button>
-                <button
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    setIsLoggedIn(false);
-                    setUserRole(""); 
-                    setUserEmail(""); 
-                  }}
-                  className="bg-red-600 hover:bg-red-700 px-4 py-3 rounded-lg font-semibold transition">
-                  Logout
-                </button>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setIsLoggedIn(false);
+                  setUserRole("");
+                  setUserEmail("");
+                }}
+                className="bg-red-600 hover:bg-red-700 px-4 py-2 md:py-3 rounded-lg font-semibold transition text-sm md:text-base">
+                Logout
+              </button>
             </div>
           </div>
 
