@@ -60,62 +60,31 @@ app.post("/products", protect, adminOnly, async (req, res) => {
 });
 
 app.put("/products/:id", protect, adminOnly, async (req, res) => {
-
   try {
-
-    const deletedProduct = await Product.findByIdAndDelete(
-      req.params.id
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
     );
-
-    if (!deletedProduct) {
-      return res.status(404).json({
-        message: "Product not found",
-      });
+    if (!updatedProduct) {
+      return res.status(404).json({ message: "Product not found" });
     }
-
-    res.json({
-      message: "Product deleted successfully",
-    });
-
+    res.json(updatedProduct);
   } catch (error) {
-
-    res.status(500).json({
-      message: error.message,
-    });
-
+    res.status(500).json({ message: error.message });
   }
-
 });
 
 app.delete("/products/:id", protect, adminOnly, async (req, res) => {
-
   try {
-
-    const updatedProduct =
-      await Product.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
-
-    if (!updatedProduct) {
-
-      return res.status(404).json({
-        message: "Product not found",
-      });
-
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+    if (!deletedProduct) {
+      return res.status(404).json({ message: "Product not found" });
     }
-
-    res.json(updatedProduct);
-
+    res.json({ message: "Product deleted successfully" });
   } catch (error) {
-
-    res.status(500).json({
-      message: error.message,
-    });
-
+    res.status(500).json({ message: error.message });
   }
-
 });
 
 app.post("/register", async (req, res) => {
